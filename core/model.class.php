@@ -19,9 +19,4 @@ class Model {
                 
 	}
 
-	function __destruct() {
-            
-            
-            
-	}
 }

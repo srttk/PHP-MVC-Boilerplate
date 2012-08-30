@@ -52,7 +52,7 @@ function callHook() {
     // add routes
 
         // standard route
-        $router->addRoute("/alphanum:controller/alphanum:action");
+        $router->addRoute("/alphanum:controller/alphanum:action/alphanum:param");
         
         // homepage
         $router->addRoute("/", array('controller' => 'pages', 'action' => 'homepage'));
