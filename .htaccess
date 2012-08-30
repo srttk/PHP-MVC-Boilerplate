@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !/pull\.php$
+RewriteRule ^$ public/ [L]
+
+RewriteCond %{REQUEST_URI} !/pull\.php$
+RewriteRule (.*) public/$1 [L]
+</IfModule>
