@@ -1,8 +1,18 @@
 <?php
 
+/*
+ * Needs to handle relationships etc.
+ * 
+ * 
+ */
+
 class DBQuery {
     
+    protected $_model;
     protected $_table;
+    protected $db_conn;
+    protected $_where = array();
+    protected $_where_type = "AND";
     
     
     function connect(){
@@ -12,6 +22,44 @@ class DBQuery {
         } catch (PDOException $e) {
             echo "Oops! " . $e->getMessage();
         }
+        
+    }
+    
+    function where($name, $value){
+        
+        $this->_where[] = array($name => $value);
+        
+    }
+    
+    function select($params = array()){
+        
+        $params = (count($params) > 0) ? implode(',', $params) : '*';
+        $query = 'SELECT '.$params.' FROM '.$this->_table;
+        
+        // joins
+        
+        // where
+        if(count($this->_where) > 0){
+            $query.=' WHERE ';
+            foreach($this->_where AS $key => $value){
+                $query.=$key.' = :'.$key;
+            }
+        }
+        
+        $stmt = $this->db_conn->prepare($query);
+        
+        // order
+        
+        // group
+        
+        // bind all where's
+        foreach($this->_where AS $key => $value){
+            $stmt->bindParam(':'.$key, $value);
+        }
+        
+        // return
+        $stmt->execute();
+        return $stmt->fetchAll();
         
     }
     
@@ -30,6 +78,5 @@ class DBQuery {
     function custom(){
         
     }
-    
     
 }
