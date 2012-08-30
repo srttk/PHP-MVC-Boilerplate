@@ -10,7 +10,6 @@ function setReporting() {
             error_reporting(E_ALL);
             ini_set('display_errors','Off');
             ini_set('log_errors', 'On');
-            ini_set('error_log', ROOT.DS.'tmp'.DS.'logs'.DS.'error.log');
     }
 }
 
@@ -55,25 +54,12 @@ function callHook() {
         // standard route
         $router->addRoute("/alphanum:controller/alphanum:action");
         
-        // admin
-        $router->addRoute("/admin", array('admin' => true, 'controller' => 'pages', 'action' => 'admin_homepage'));
-        $router->addRoute("/admin/alphanum:controller/alphanum:action", array('admin' => true));
-        
         // homepage
         $router->addRoute("/", array('controller' => 'pages', 'action' => 'homepage'));
         
         $urlArr = explode('?', $_SERVER['REQUEST_URI']);
         $url = (strlen($urlArr[0]) > 1 && substr($urlArr[0], -1) == '/') ? substr($urlArr[0], 0, -1) : $urlArr[0];
         $route = $router->getRoute($url);
-        
-        // admin login
-        
-        if(isset($route['admin'])){
-            if($route['admin'] && !isset($_SESSION['admin_user']) && $route['action'] != 'admin_login'){
-                header("Location: /admin/accounts/admin_login");
-                exit();
-            }
-        }
         
         if(!$route){
             
