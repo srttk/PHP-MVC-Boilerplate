@@ -38,7 +38,7 @@ class DBQuery {
         
         // joins
         
-        // where
+        // wheres
         if(count($this->_where) > 0){
             $query.=' WHERE ';
             foreach($this->_where AS $key => $value){
@@ -48,9 +48,9 @@ class DBQuery {
         
         $stmt = $this->db_conn->prepare($query);
         
-        // order
+        // orders
         
-        // group
+        // groups
         
         // bind all where's
         foreach($this->_where AS $key => $value){
