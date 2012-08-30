@@ -2,6 +2,8 @@
 
 /** Configuration Variables **/
 
+define('BASE_PATH','http://php-mvc.devbox.local');
+
 define('DEVELOPMENT_ENVIRONMENT',true);
 
 define('DB_NAME', '');
