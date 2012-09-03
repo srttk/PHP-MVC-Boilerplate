@@ -6,8 +6,8 @@ define('BASE_PATH','http://php-mvc.devbox.local');
 
 define('DEVELOPMENT_ENVIRONMENT',true);
 
-define('DB_NAME', '');
-define('DB_USER', '');
+define('DB_NAME', 'php_mvc');
+define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
 define('DB_TYPE', 'mysql');
