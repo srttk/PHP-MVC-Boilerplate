@@ -14,10 +14,7 @@ class WidgetsController extends Controller {
     function news($params){
         
         $data = $this->model->getNews($params);
-        
         $this->set('news_items', $data);
-        $this->set('params', $params);
-        
         
     }
     

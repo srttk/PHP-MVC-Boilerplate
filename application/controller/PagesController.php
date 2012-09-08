@@ -8,7 +8,7 @@ class PagesController extends Controller {
     
     function view($route){
         
-        $data = $this->model->getPage($route['param']);
+        $data = $this->model->get_page($route['param']);
         
         if(!empty($data)){
             $this->set('page_title', $data['title']);

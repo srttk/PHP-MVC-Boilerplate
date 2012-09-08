@@ -1,7 +1,13 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+class News extends Model {
+    
+    function get_article($article_id) {
+        
+        $stmt = $this->db_conn->prepare('SELECT * FROM news WHERE id = :id');
+        $stmt->execute(array("id" => $article_id));
+        return $stmt->fetch();
+        
+    }
+    
+}

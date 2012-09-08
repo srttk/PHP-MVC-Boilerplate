@@ -4,12 +4,9 @@ class Widget extends Model {
     
     function getNews() {
         
-        return array(
-            array('title' => 'poo', 'url' => 'test'),
-            array('title' => 'poo2', 'url' => 'test2')
-            
-            );
-        
+        $stmt = $this->db_conn->prepare('SELECT * FROM news ORDER BY date_published DESC');
+        $stmt->execute();
+        return $stmt->fetchAll();
         
     }
     

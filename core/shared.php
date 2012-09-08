@@ -100,7 +100,7 @@ function callHook() {
         
         else{
                 // 404
-                error_404('No class found');
+                error_404('No class found. '.$controller);
         }
         
 }
