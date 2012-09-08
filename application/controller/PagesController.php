@@ -23,7 +23,12 @@ class PagesController extends Controller {
         
     }
     
-    function error404(){
+    function error404($error_message){
+        
+        if(DEVELOPMENT_ENVIRONMENT){
+            $this->set('error', $error_message);
+        }
+        
         $this->set('page_title', 'Error 404');
         $this->set('title', 'Oopsy daisy!');
         $this->set('content', "Couldn't find that page... sorry!");

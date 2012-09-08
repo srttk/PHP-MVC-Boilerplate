@@ -50,6 +50,10 @@ function callHook() {
     $router = new Router;
     
     // add routes
+    
+        // custom routes here
+    
+    
 
         // standard route
         $router->addRoute("/alphanum:controller/alphanum:action/alphanum:param");
@@ -64,10 +68,7 @@ function callHook() {
         if(!$route){
             
             // 404
-            $model = 'Page';
-            $controllerName = 'Pages';
-            $controller = 'PagesController';
-            $action = 'error404';
+            error_404('Route not found');
             
         }
         
@@ -82,14 +83,24 @@ function callHook() {
         }
         
         // fire up the controller
-        
-        $dispatch = new $controller($model,$controllerName,$action);
-        if ((int)method_exists($controller, $action)) {
+        if(class_exists($controller)){
+            
+            $dispatch = new $controller($model,$controllerName,$action);
+            
+            if ((int)method_exists($controller, $action)){
                 call_user_func_array(array($dispatch,$action),array($route));
-        } else {
-                /* Error Generation Code Here */
-            // 404
-            echo 'No method in controller';
+            }
+            
+            else{
+                // 404
+                error_404('No method in controller');
+            }
+            
+        }
+        
+        else{
+                // 404
+                error_404('No class found');
         }
         
 }
@@ -106,7 +117,7 @@ function __autoload($className) {
 	} else {
 		/* Error Generation Code Here */
             // 404
-            echo 'No class file found';
+            error_404('No class file found');
 	}
 }
 
@@ -114,6 +125,14 @@ function loadWidget($widget, $params){
     
             $obj = $widget.'Widget';
             $$obj = new WidgetsController($widget, $params);
+    
+}
+
+function error_404($error_message){
+    
+            // 404
+            $dispatch = new PagesController('Page','Pages','error404');
+            $dispatch->error404($error_message);
     
 }
 
