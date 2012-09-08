@@ -18,12 +18,12 @@ class PagesController extends Controller {
         
         else{
             // 404
-            $this->error404();
+            $this->error404('Page not found in database.');
         }
         
     }
     
-    function error404($error_message){
+    function error404($error_message = null){
         
         if(DEVELOPMENT_ENVIRONMENT){
             $this->set('error', $error_message);
