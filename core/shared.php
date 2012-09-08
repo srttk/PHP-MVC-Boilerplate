@@ -55,7 +55,8 @@ function callHook() {
     
     
 
-        // standard route
+        // standard routes
+        $router->addRoute("/alphanum:controller/alphanum:action");
         $router->addRoute("/alphanum:controller/alphanum:action/alphanum:param");
         
         // homepage
@@ -80,27 +81,27 @@ function callHook() {
             $action = $route['action'];
             $controllerName = ucwords($route['controller']);
             
-        }
-        
-        // fire up the controller
-        if(class_exists($controller)){
-            
-            $dispatch = new $controller($model,$controllerName,$action);
-            
-            if ((int)method_exists($controller, $action)){
-                call_user_func_array(array($dispatch,$action),array($route));
+            // fire up the controller
+            if(class_exists($controller)){
+
+                $dispatch = new $controller($model,$controllerName,$action);
+
+                if ((int)method_exists($controller, $action)){
+                    call_user_func_array(array($dispatch,$action),array($route));
+                }
+
+                else{
+                    // 404
+                    error_404('No method in controller');
+                }
+
             }
-            
+
             else{
-                // 404
-                error_404('No method in controller');
+                    // 404
+                    error_404('No class found. '.$controller);
             }
-            
-        }
         
-        else{
-                // 404
-                error_404('No class found. '.$controller);
         }
         
 }

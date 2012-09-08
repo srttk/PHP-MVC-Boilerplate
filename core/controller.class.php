@@ -6,6 +6,8 @@ class Controller {
 	protected $_controller;
 	protected $_action;
 	protected $_template;
+        protected $_abort_render = false;
+        
         public $template_file;
 
 	function __construct($model, $controllerName, $action) {
@@ -25,7 +27,11 @@ class Controller {
 	}
 
 	function __destruct() {
-		$this->_template->render($this->template_file);
+                
+            if(!$this->_abort_render){
+            $this->_template->render($this->template_file);
+            }
+            
 	}
 
 }
