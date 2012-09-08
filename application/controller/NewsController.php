@@ -16,7 +16,7 @@ class NewsController extends Controller {
 
         else{
             // 404
-            $this->_abort_render = true;
+            $this->abort_render = true;
             error_404('Article not found.');
         }
        

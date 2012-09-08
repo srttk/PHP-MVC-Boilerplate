@@ -69,7 +69,7 @@ function callHook() {
         if(!$route){
             
             // 404
-            error_404('Route not found');
+            error_404('Route not found.');
             
         }
         
@@ -92,14 +92,15 @@ function callHook() {
 
                 else{
                     // 404
-                    error_404('No method in controller');
+                    $dispatch->abort_render = true;
+                    error_404('Method: "'.$action.'" not found in Controller: "'.$controller.'".');
                 }
 
             }
 
             else{
                     // 404
-                    error_404('No class found. '.$controller);
+                    error_404('Class: "'.$controller.'" not found.');
             }
         
         }
@@ -118,7 +119,7 @@ function __autoload($className) {
 	} else {
 		/* Error Generation Code Here */
             // 404
-            error_404('No class file found');
+            error_404('Class file not found.');
 	}
 }
 
