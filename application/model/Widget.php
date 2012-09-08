@@ -4,7 +4,11 @@ class Widget extends Model {
     
     function getNews() {
         
-        return array('modeldata' => 'poo');
+        return array(
+            array('title' => 'poo', 'url' => 'test'),
+            array('title' => 'poo2', 'url' => 'test2')
+            
+            );
         
         
     }

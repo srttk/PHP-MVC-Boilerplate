@@ -21,11 +21,7 @@ class Template {
         
         extract($this->variables);
 
-        if($admin_template){
-            include(ROOT.DS.'application'.DS.'view'.DS.'admin_header.php');
-        }
-        
-        elseif(file_exists(ROOT.DS.'application'.DS.'view'.DS.$this->_controller.DS.'header.php')) {
+        if(file_exists(ROOT.DS.'application'.DS.'view'.DS.$this->_controller.DS.'header.php')) {
             include(ROOT.DS.'application'.DS.'view'.DS.$this->_controller.DS.'header.php');
         }
 
@@ -35,11 +31,7 @@ class Template {
 
         include(ROOT.DS.'application'.DS.'view'.DS.$this->_controller.DS.$template_file.'.php');
 
-        if($admin_template){
-            include(ROOT.DS.'application'.DS.'view'.DS.'admin_footer.php');
-        }
-        
-        elseif(file_exists(ROOT.DS.'application'.DS.'view'.DS.$this->_controller.DS.'footer.php')) {
+        if(file_exists(ROOT.DS.'application'.DS.'view'.DS.$this->_controller.DS.'footer.php')) {
             include (ROOT.DS.'application'.DS.'view'.DS.$this->_controller.DS.'footer.php');
         }
 
