@@ -10,4 +10,12 @@ class News extends Model {
         
     }
     
+    function get_articles() {
+        
+        $stmt = $this->db_conn->prepare('SELECT * FROM news ORDER BY date_published DESC');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        
+    }
+    
 }

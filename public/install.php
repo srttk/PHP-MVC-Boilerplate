@@ -27,7 +27,7 @@ $createsql->execute();
 $insertsql = $conn->prepare("INSERT INTO pages (title, content) VALUES ('About PHP MVC', 'PHP MVC Boilerplate description to go here.')");
 $insertsql->execute();
 
-$insertsql = $conn->prepare("INSERT INTO navigation (title, page_id, url, nav_order) VALUES ('Home', NULL, '/', 0), ('About PHP MVC', '1', '', '1'), ('News', NULL, '/news/list/', '2')");
+$insertsql = $conn->prepare("INSERT INTO navigation (title, page_id, url, nav_order) VALUES ('Home', NULL, '/', 0), ('About PHP MVC', '1', '', '1'), ('News', NULL, '/news/articles/', '2')");
 $insertsql->execute();
 
 $insertsql = $conn->prepare("INSERT INTO news (date_published, title, content) VALUES ('2012-01-01', 'Happy new year!', 'New Year is the time at which a new calendar year begins and the calendar''s year count is incremented. In many cultures, the event is celebrated in some manner. The New Year of the Gregorian calendar, today in worldwide use, falls on 1 January, as was the case with the Roman calendar. There are numerous calendars that remain in regional use that calculate the New Year differently.'), (NOW(), 'An example news item...', 'This is an example of a news item, created for the PHP MVC Boilerplate.')");
