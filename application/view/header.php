@@ -16,10 +16,7 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="/">PHP MVC Boilerplate</a>
-        <ul class="nav">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/pages/view/1">About</a></li>
-        </ul>
+        <?php loadWidget('navigation'); ?>
     </div>
   </div>
 </div>

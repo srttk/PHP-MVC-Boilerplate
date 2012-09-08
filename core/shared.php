@@ -122,7 +122,7 @@ function __autoload($className) {
 	}
 }
 
-function loadWidget($widget, $params){
+function loadWidget($widget, $params = null){
     
             $obj = $widget.'Widget';
             $$obj = new WidgetsController($widget, $params);
