@@ -16,5 +16,4 @@ Sitepoint, anantgarg.com and kuwamoto.org.
 
 Disclaimer: This is a framework for experimental/educational 
 purposes only and is not intended for production use. There 
-are many professional, community led frameworks out there. 
-CakePHP being one.
+are many professional, popular, community-led frameworks out there. 
