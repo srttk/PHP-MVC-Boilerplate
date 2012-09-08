@@ -3,7 +3,7 @@
 class PagesController extends Controller {
     
     function homepage(){
-        $this->set('page_title', 'homepage');
+        
     }
     
     function view($route){

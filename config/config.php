@@ -6,6 +6,8 @@ define('BASE_PATH','http://php-mvc.devbox.local');
 
 define('DEVELOPMENT_ENVIRONMENT',true);
 
+define('SITE_NAME', 'PHP MVC Boilerplate');
+
 define('DB_NAME', 'php_mvc');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
