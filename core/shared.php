@@ -93,7 +93,7 @@ function callHook() {
                 else{
                     // 404
                     $dispatch->abort_render = true;
-                    error_404('Method: "'.$action.'" not found in Controller: "'.$controller.'".');
+                    error_404('Method: "'.$action.'" not found in: "'.$controller.'".');
                 }
 
             }
