@@ -19,7 +19,6 @@ class Controller {
 		$this->model = new $model($controllerName);
 		$this->_template = new Template($controllerName);
                 $this->template_file = $this->_action;
-                $this->set('admin_template', false);
 	}
 
 	function set($name,$value) {

@@ -2,7 +2,7 @@
 
 class Widget extends Model {
     
-    function getNews() {
+    function get_news() {
         
         $stmt = $this->db_conn->prepare('SELECT * FROM news ORDER BY date_published DESC');
         $stmt->execute();
@@ -10,7 +10,7 @@ class Widget extends Model {
         
     }
     
-    function getNav() {
+    function get_nav() {
         
         $stmt = $this->db_conn->prepare('SELECT title, page_id, url FROM navigation ORDER BY nav_order');
         $stmt->execute();
@@ -22,7 +22,19 @@ class Widget extends Model {
             
             $nav_items[$i]['title'] = $row['title'];
             $nav_items[$i]['url'] = (!empty($row['page_id'])) ? '/pages/view/'.$row['page_id'] : $row['url'] ;
-            $nav_items[$i]['active'] = ($_SERVER['REQUEST_URI'] == $nav_items[$i]['url']) ? true : false;
+            
+            if($_SERVER['REQUEST_URI'] == $nav_items[$i]['url']){
+                $nav_items[$i]['active'] = true;
+            }
+            
+            elseif(strpos($_SERVER['REQUEST_URI'],$nav_items[$i]['url']) !== false && $nav_items[$i]['url'] != '/'){
+                $nav_items[$i]['active'] = true;
+            }
+            
+            else{
+                $nav_items[$i]['active'] = false;
+            }
+            
             
         $i++;
             

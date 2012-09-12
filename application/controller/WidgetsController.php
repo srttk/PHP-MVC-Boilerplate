@@ -13,14 +13,14 @@ class WidgetsController extends Controller {
 
     function news($params){
         
-        $data = $this->model->getNews($params);
+        $data = $this->model->get_news($params);
         $this->set('news_items', $data);
         
     }
     
     function navigation(){
         
-        $nav_items = $this->model->getNav();
+        $nav_items = $this->model->get_nav();
         $this->set('nav_items', $nav_items);
         
     }
