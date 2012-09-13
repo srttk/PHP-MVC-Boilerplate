@@ -26,14 +26,18 @@ It's a lightweight boilerplate!!! What do you want from me?! ;)
 
 ### Widgets
 
-There is a convenient global function called load_widget(). 
+There is a convenient global function called load_widget. 
 This is handy for navigation or sidebar widgets and 
 is handled by the WidgetsController.
 
 This function accepts two parameters;
 
-*Widget name.
-*Optional parameters to be passed to the widgets method.
+- Widget name.
+- Optional parameters to be passed to the widgets method.
+
+Example of use in view;
+
+    <?php loadWidget('news', array('limit' => '5')); ?>
 
 Credits: Inspiration and some snippets taken from; CakePHP, 
 Sitepoint, anantgarg.com and kuwamoto.org.
