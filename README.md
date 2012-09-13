@@ -51,4 +51,4 @@ purposes only and is not intended for production use. There
 are many professional, popular, community-led frameworks out there. 
 
 That said... Hopefully it is of some use or help to someone. If not 
-then make a branch! Expand it! Make it better! That is what it is all about!
+then expand it! Make it better! That is what it is all about!
