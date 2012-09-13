@@ -26,7 +26,7 @@ It's a lightweight boilerplate!!! What do you want from me?! ;)
 
 ### Widgets
 
-There is a convenient global function called load_widget. 
+There is a convenient global function called loadWidget. 
 This is handy for navigation or sidebar widgets and 
 is handled by the WidgetsController.
 

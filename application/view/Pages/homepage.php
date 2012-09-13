@@ -13,7 +13,7 @@
         <p>If you're already familiar with MVC frameworks, the majority of the structure should make sense. The only major thing to note is that PDO is used directly in the models and does not have a database abstraction layer.</p>
         
         <h3>Widgets</h3>
-        <p>There is a convenient global function called <code>load_widget();</code>.</p>
+        <p>There is a convenient global function called <code>loadWidget();</code>.</p>
         <p>This function accepts two parameters;</p>
         <ol>
             <li>Widget name</li>
