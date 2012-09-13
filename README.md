@@ -39,10 +39,14 @@ Example of use in view;
 
     <?php loadWidget('news', array('limit' => '5')); ?>
 
-Credits: Inspiration and some snippets taken from; CakePHP, 
+### Credits
+
+Inspiration and some snippets taken from; CakePHP, 
 Sitepoint, anantgarg.com and kuwamoto.org.
 
-Disclaimer: This is a framework for experimental/educational 
+### Disclaimer
+
+This is a framework for experimental/educational 
 purposes only and is not intended for production use. There 
 are many professional, popular, community-led frameworks out there. 
 
