@@ -2,9 +2,9 @@
 
 class Widget extends Model {
     
-    function get_news() {
+    function get_news($params) {
         
-        $stmt = $this->db_conn->prepare('SELECT * FROM news ORDER BY date_published DESC');
+        $stmt = $this->db_conn->prepare('SELECT * FROM news ORDER BY date_published DESC LKMIT 0,'.$params['limit']);
         $stmt->execute();
         return $stmt->fetchAll();
         
